@@ -24,7 +24,6 @@ Player = Class.create(Sprite, {
     },
 
     onenterframe: function() {
-        
         //03 Player Controls
         
         //05 Mouse Update
@@ -156,7 +155,7 @@ window.onload = function() {
     game = new Game(stgWidth, stgHeight);
     //Preload images
     //Any resources not preloaded will not appear
-    game.preload('staff.png', 'badges.png');
+    game.preload('res/staff.png', 'res/badges.png');
 
     game.onload = function() { //Prepares the game
         var scene = new SceneGame();
