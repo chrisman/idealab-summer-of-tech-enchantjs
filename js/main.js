@@ -33,7 +33,7 @@ Player = Class.create(Sprite, {
 //07 Gem Class
 Gem = Class.create(Sprite, {
     initialize: function() {
-        Sprite.call(this, 16, 16);
+        Sprite.call(this, 32, 32);
         this.image = game.assets['res/badges.png'];
 		//07 Gem initialize
     },
@@ -49,7 +49,7 @@ Gem = Class.create(Sprite, {
 //11 Bomb Class
 Bomb = Class.create(Sprite, {
     initialize: function() {
-        Sprite.call(this, 16, 16);
+        Sprite.call(this, 32, 32);
         this.image = game.assets['res/thesuck.png'];
         this.x = Math.random() * (stgWidth - 32);
         this.y = Math.random() * (stgHeight - 32); //Account for the bottom part
@@ -66,12 +66,12 @@ Bomb = Class.create(Sprite, {
 
     onenterframe: function() {
         if (this.age === 60) {
-            game.rootScene.removeChild(this);
+            game.currentScene.removeChild(this);
         }
 
         if (this.intersect(player)) {
             player.health--;
-            game.rootScene.removeChild(this);
+            game.currentScene.removeChild(this);
             console.log("ouch!");
         }
 
